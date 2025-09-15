@@ -1,19 +1,53 @@
-# Tarefa_IA
+# Projeto de Classificação Supervisionada – Breast Cancer Wisconsin (Diagnostic)
 
-# 1. Explique com suas palavras o que significa classificação supervisionada?
+## 1. Escolha do Dataset  
+- **Fonte:** [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic)  
+- **Motivo da escolha:**  
+  - É um dataset real da área da saúde, com relevância prática.  
+  - Possui 569 amostras.  
+  - O dataset tem uma variável binária clara: se o tumor é maligno (0) ou benigno (1).  
+  - Contém 30 features numéricas, que permitem aplicar e comparar diferentes algoritmos de classificação.
 
-Classificação supervisionada é um tipo de aprendizado de máquina em que o modelo aprende a partir de dados já rotulados. Isso significa que o dataset já contém entradas e saídas definidas. O algoritmo usa esses dados para aprender padrões e depois conseguir prever a classe de novos exemplos desconhecidos.
+---
 
+## 2. Preparação dos Dados  
+- **Leitura:** O dataset foi carregado diretamente do repositório UCI no formato .data.  
+- **Ajustes realizados:**  
+  - Inclusão dos nomes das colunas (conforme documentação oficial).  
+  - Conversão da variável alvo diagnosis: M → 1 (maligno), B → 0 (benigno).  
+  - Exclusão da coluna ID (não traz informação relevante para a classificação).  
+- **Divisão dos dados:**  
+  - Conjunto de treino: 70%  
+  - Conjunto de teste: 30%  
+  - random_state=42 para reprodutibilidade.  
 
-# 2. Qual é a importância de dividir o dataset em conjunto de treino e teste?
+---
 
-A divisão entre treino e teste é importante para saber se o modelo realmente aprendeu ou apenas decorou os dados, avaliando se o modelo vai performar bem em dados novos. O conjunto de treino serve para o algoritmo aprender os padrões, enquanto o de teste é usado para verificar seu desempenho em dados que ele nunca viu. Assim, conseguimos medir a capacidade de generalização do modelo.
+## 3. Modelagem  
+- Três modelos de classificação supervisionada foram aplicados:  
+  - **Decision Tree** (árvore de decisão)  
+  - **KNN** (K-Nearest Neighbors)  
+  - **Logistic Regression**  
+- Todos os modelos foram treinados no conjunto de treino e avaliados no conjunto de teste.  
 
+---
 
-# 3. Qual a diferença entre Decision Tree e KNN em termos de funcionamento?
+## 4. Avaliação  
+- **Métricas utilizadas:**  
+  - **Acurácia**: porcentagem de acertos do modelo.  
+  - **Matriz de confusão**: análise detalhada de verdadeiros positivos/negativos e falsos positivos/negativos.  
+  - **Relatório de classificação**: precision, recall e f1-score.  
+- **Resultados obtidos:**  
+  - Decision Tree → Acurácia: 0.9415  
+  - KNN → Acurácia: 0.9591  
+  - Logistic Regression → Acurácia: 0.9766 (melhor desempenho).  
 
-A Decision Tree funciona construindo uma árvore de decisões, onde cada nó representa uma condição sobre uma variável, e no final o modelo classifica o dado em uma classe. Já o KNN (K-Nearest Neighbors) classifica os “vizinhos” mais próximos no espaço de atributos: ele calcula a distância entre os pontos e atribui a classe mais comum entre os K vizinhos mais próximos. Em resumo, a Decision Tree cria regras de decisão, enquanto o KNN se baseia na proximidade entre os exemplos.
+---
 
-# 4.1 – Escolha de Dataset
-O dataset escolhido foi o Breast Cancer Wisconsin (Diagnostic), disponível no UCI Machine Learning Repository. O dataset tem uma variável binária clara: se o tumor é maligno (0) ou benigno (1), com 569 amostras, o suficiente para treinar e testar modelos sem ficar pesado mas também não tão pequeno a ponto de não permitir avaliação de desempenho. Ele contém 30 features numéricas (como área, textura, suavidade, compactação, simetria etc.), o que dá bastante espaço para aplicar diferentes modelos e ver como eles se comportam, além de tratar de um problema real de saúde, o que mostra a aplicação de machine learning em algo de impacto social.
-
+## 5. Conclusão  
+- O Logistic Regression foi o modelo com melhor desempenho, alcançando 97,66% de acurácia.  
+- Ele apresentou bom equilíbrio entre precision e recall, sendo confiável para este tipo de problema.  
+- Possíveis próximos passos:  
+  - Testar técnicas de normalização ou padronização de dados (especialmente para o KNN).  
+  - Ajustar hiperparâmetros dos modelos (como profundidade da árvore ou valor de K).  
+  - Explorar outros algoritmos, como SVM ou Random Forest, para comparar os resultados.  
