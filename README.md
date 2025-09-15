@@ -44,7 +44,19 @@
 
 ---
 
-## 5. Conclusão  
+# 5. Resultados dos Modelos
+
+| Modelo                | Acurácia | Precision (classe 1) | Recall (classe 1) | F1-score (classe 1) |
+|------------------------|----------|-----------------------|-------------------|----------------------|
+| Decision Tree          | 0.9415   | 0.90                  | 0.95              | 0.92                 |
+| KNN                    | 0.9591   | 0.98                  | 0.90              | 0.94                 |
+| Logistic Regression    | 0.9766   | 0.97                  | 0.97              | 0.97                 |
+
+![Comparação de Acurácia](assets/comparacao_de_acuracia.png)
+
+---
+
+## 6. Conclusão  
 - O Logistic Regression foi o modelo com melhor desempenho, alcançando 97,66% de acurácia.  
 - Ele apresentou bom equilíbrio entre precision e recall, sendo confiável para este tipo de problema.  
 - Possíveis próximos passos:  
